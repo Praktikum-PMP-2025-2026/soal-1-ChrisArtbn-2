@@ -2,24 +2,29 @@
 
 int main() {
     int N;
+    long long total;
+
     if (scanf("%d", &N) != 1) return 0;
     
     long long A[N];
     for (int i = 0; i < N; i++) {
-        scanf("%llf", &A[i]);
+        scanf("%lld", &A[i]);
     }
     
     for (int i = 0; i < N; i++) {
+        long long angka_selanjutnya = 0;
         if (A[i] == -1) {
-            long long angka_selanjutnya = 0;
             for (int j = i + 1; j < N; j++) {
                 if (A[j] != -1) {
                     angka_selanjutnya = A[j];
                     break;}
+                }
+
             if (i == 0) {
                 A[i] = angka_selanjutnya;
-            } else {
-                A[i] = (A[i-1] + angka_selanjutnya) % 2;
+            } 
+            else {
+                A[i] = (A[i-1] + angka_selanjutnya) / 2;
             }
         }
     }
