@@ -6,7 +6,7 @@ int main() {
     
     long long A[N];
     for (int i = 0; i < N; i++) {
-        scanf("%lld", &A[i]);
+        scanf("%llf", &A[i]);
     }
     
     for (int i = 0; i < N; i++) {
@@ -16,16 +16,10 @@ int main() {
                 if (A[j] != -1) {
                     angka_selanjutnya = A[j];
                     break;}
-                else{
-                    if (A[j-2] != 1)
-                    angka_selanjutnya = A[j-2];
-                    break;
-                    }
-                }
             if (i == 0) {
                 A[i] = angka_selanjutnya;
             } else {
-                A[i] = (A[i-1] + angka_selanjutnya) / 2;
+                A[i] = (A[i-1] + angka_selanjutnya) % 2;
             }
         }
     }
