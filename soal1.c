@@ -15,9 +15,13 @@ int main() {
             for (int j = i + 1; j < N; j++) {
                 if (A[j] != -1) {
                     angka_selanjutnya = A[j];
+                    break;}
+                else{
+                    if (A[j-2] != 1)
+                    angka_selanjutnya = A[j-2];
                     break;
+                    }
                 }
-            }
             if (i == 0) {
                 A[i] = angka_selanjutnya;
             } else {
