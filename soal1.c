@@ -2,7 +2,6 @@
 
 int main() {
     int N;
-    long long total;
 
     if (scanf("%d", &N) != 1) return 0;
     
@@ -15,11 +14,14 @@ int main() {
         long long angka_selanjutnya = 0;
         if (A[i] == -1) {
             for (int j = i + 1; j < N; j++) {
-                if (A[j] != -1) {
+                if (A[j] != -1){
                     angka_selanjutnya = A[j];
                     break;}
-                }
-
+                else{
+                    if (A[j-2] != -1){
+                        angka_selanjutnya = A[j-2];}
+                        break;}
+                    }
             if (i == 0) {
                 A[i] = angka_selanjutnya;
             } 
@@ -28,7 +30,6 @@ int main() {
             }
         }
     }
-    
     printf("RECOVERED");
     for (int i = 0; i < N; i++) {
         printf(" %lld", A[i]);
